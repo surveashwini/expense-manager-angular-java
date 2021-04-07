@@ -1,0 +1,58 @@
+<div class="d-flex flex-row m-5 rounded card">
+    <div class="card recurring-container">
+      <h5 class="card-header bg-dark">
+        <div class="flex-column">
+          <nav aria-label="row justify-content-center breadcrumb ">
+            <ol class="column justify-content-start g-3 breadcrumb">
+                <li class="breadcrumb-item text-light"><a href="/dashboard">Dashboard</a></li>
+                <li class="breadcrumb-item active text-light" aria-current="page">Recurring</li>
+            </ol>
+          </nav>  
+        </div>
+    </h5> 
+    <div class="recurring-container">
+            <div class="card-body d-flex justify-content-center">
+                <form [formGroup]="addRecurringExpenseForm" >
+                  <div class="type row justify-content-center g-3 align-items-center m-2">
+                    <div class="form-floating">
+                      <input type="text" id="recurringExpense" class="form-control" formControlName="recurringExpense" autocomplete="off">
+                      <label for="recurringExpense">Expense name</label>
+                    </div>
+                  </div>
+                  <div class="amount row justify-content-center g-3 align-items-center m-2">
+                    <div class="form-floating">
+                      <input type="number" id="recurringAmount" class="form-control" formControlName="recurringAmount" autocomplete="off">
+                      <label for="recurringAmount">Expense amount</label>
+                    </div>
+                  </div>
+                  
+                  <div class="amount row justify-content-center g-3 align-items-center m-2">
+                    <div class="">
+                      <select class="form-select" id="duration" formControlName="duration">
+                        <option selected>Duration</option>
+                        <option *ngFor="let option of recurring" value="{{option}}">{{option}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  
+                  <div class="amount row justify-content-center g-3 align-items-center m-2">
+                    <div>
+                      <button type="button" class="m-2 btn btn-primary" (click)="addRecurringExpense()">Submit</button>
+                    </div>
+                  </div>
+                </form>    
+            </div>
+    </div>
+</div>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header bg-success text-light">
+      <strong class="me-auto">Success</strong>
+      <button type="button" class="btn-close text-light" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Your expense record has been added.
+    </div>
+  </div>
+</div>

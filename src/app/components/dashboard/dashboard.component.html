@@ -1,0 +1,58 @@
+
+<h1 class="display-1">Expense Manager</h1>
+<h4 class="display-9">Manage your expenses with us!</h4>
+<div class="container-fluid d-flex align-items-center justify-content-center">
+    <div class="flex-row">
+        <div class="rounded card m-5">
+            <h5 class="card-header bg-dark text-light"> Add expenses </h5>
+            <div class="card-body">
+              <p class="card-text">Just click the below button to add your expenses for the day/month/year</p>
+              <button class="btn btn-primary">
+                <i class="bi bi-plus-circle-fill" style="font-size: 1.5rem;" (click)="addExpense()">
+                    <span style="font-style: normal; font-size:1.5rem; cursor:pointer"> Add expense</span>
+                  </i>
+              </button>
+            </div>
+        </div>
+
+        <div class="rounded card m-5">
+            <h5 class="card-header bg-dark text-light">Expense analysis</h5>
+            <div class="card-body">
+                <p class="card-text">Just click the below button to analyse your expense trend</p>
+                <button class="btn btn-primary">
+                    <i class="bi bi-plus-circle-fill" style="font-size: 1.5rem;" (click)="showAnalysis()">
+                        <span style="font-style: normal; font-size:1.5rem; cursor:pointer"> Expense analysis</span>
+                      </i>
+                  </button>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="flex-row">
+        <div class="rounded card m-5">
+            <h5 class="card-header bg-dark text-light">Recurring expenses</h5>
+            <div class="card-body">
+                <p class="card-text">Just add the expense once, and then forget about adding it repetitively</p>
+                <button class="btn btn-primary">
+                    <i class="bi bi-plus-circle-fill" style="font-size: 1.5rem;" (click)="addRecurring()">
+                        <span style="font-style: normal; font-size:1.5rem; cursor:pointer"> Add Recurring expenses</span>
+                      </i>
+                  </button>
+            </div>
+        </div>
+
+        <div class="rounded card m-5">
+            <h5 class="card-header bg-dark text-light"> Expense report </h5>
+            <div class="card-body">
+                <p class="card-text">View your past expenses from this report</p> 
+                <button class="btn btn-primary">
+                    <i class="bi bi-plus-circle-fill" style="font-size: 1.5rem;" (click)="showReport()">
+                        <span style="font-style: normal; font-size:1.5rem; cursor:pointer"> Expense report</span>
+                      </i>
+                  </button>
+            </div>
+        </div>
+        
+    </div>
+</div>
