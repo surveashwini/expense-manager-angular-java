@@ -1,5 +1,5 @@
 <div class="d-flex flex-row m-5 rounded card">
-    <div class="card add-container">
+    <div class="card add-container w-50">
       <h5 class="card-header bg-dark">
         <div class="flex-column">
           <nav aria-label="row justify-content-center breadcrumb ">
@@ -14,21 +14,21 @@
         <div class="card-body">
           <form [formGroup]="addExpenseForm" >
             <div class="type row justify-content-center g-3 align-items-center m-2">
-              <div class="form-floating">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Expense Name</span>
                 <input type="text" id="expense" class="form-control" formControlName="expense" autocomplete="off">
-                <label for="expense">Expense name</label>
               </div>
             </div>
             <div class="amount row justify-content-center g-3 align-items-center m-2">
-              <div class=" form-floating">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Expense Amt</span>
                 <input type="number" id="amount" class="form-control" formControlName="amount" autocomplete="off">
-                <label for="amount">Expense amount</label>
               </div>
             </div>
             <div class="type row justify-content-center g-3 align-items-center m-2">
-              <div class="form-floating">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Expense Date</span>
                 <input type="date" id="type" class="form-control" formControlName="expenseDate" autocomplete="off">
-                <label for="type">Expense date</label>
               </div>
             </div>
             <div class="action row justify-content-center g-3 align-items-center m-2">
@@ -43,7 +43,7 @@
 
     </div>
     
-    <div class="card add-container">
+    <div class="card add-container w-50">
       <h5 class="card-header bg-dark text-light"> Summary </h5> 
       <div class="card-body summary-body justify-content-center">
          <div *ngIf="userEntered;else noData">

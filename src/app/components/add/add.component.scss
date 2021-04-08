@@ -1,18 +1,13 @@
 .add-container {
     
-     width: 50%;
-     border: 0;
-     padding: 0;
-     margin: 0;
+    border: 0;
+    padding: 0;
+    margin: 0;
      
     .card-header {
         height: 6vh;
     }
 
-    input, .action {
-        width: 80%;
-    }
-    
     
 
     .disabled-button {
@@ -38,26 +33,5 @@
     }
     .straight {
         color: rgb(21, 146, 242);
-    }
-
-
-     
-} 
-
-// @keyframes cf4FadeInOut {
-//     0% {
-//       opacity:1;
-//     }
-//     17% {
-//       opacity:1;
-//     }
-//     25% {
-//       opacity:0;
-//     }
-//     92% {
-//       opacity:0;
-//     }
-//     100% {
-//       opacity:1;
-//     }
-//   }
+    }   
+}

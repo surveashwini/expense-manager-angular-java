@@ -23,7 +23,7 @@ export class RecurringComponent implements OnInit {
     this.addRecurringExpenseForm = new FormGroup({
       recurringExpense: new FormControl(''),
       recurringAmount: new FormControl(''),
-      duration: new FormControl('Duration')
+      duration: new FormControl('Weekly')
     });  
   }
 
@@ -36,7 +36,7 @@ export class RecurringComponent implements OnInit {
     this.addRecurringExpenseForm.patchValue({'duration': this.addRecurringExpenseForm.get('duration').value.toLowerCase()});
     this.expenseService.addRecurringExpense(this.addRecurringExpenseForm.value).subscribe((response) => {
       this.addRecurringExpenseForm.reset();
-      this.addRecurringExpenseForm.patchValue({duration: 'Duration'});
+      this.addRecurringExpenseForm.patchValue({duration: 'Weekly'});
     });
   }
 }

@@ -14,22 +14,58 @@
     </h5> 
     <div class="add-container" *ngIf="expenseList">
         <div class="card-body">
+          <form [formGroup]="reportForm" >
             <table class="table">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Expense name</th>
-                    <th scope="col">amount</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let expense of expenseList;let i = index">
                     <th scope="row">{{i + 1}}</th>
-                    <td>{{expense.expense}}</td>
-                    <td>{{expense.amount}}</td>
+                    <td>
+                      <input class="form-control w-50 d-inline" formControlName="expense" 
+                      *ngIf="editRecordDetails && editRecordDetails.edit && editRecordDetails.i === i; else staticName" [value]="expense.expense">
+                      <ng-template #staticName> {{expense.expense}} </ng-template>
+                    </td>
+                    <td>
+                      <input class="form-control w-50 d-inline" formControlName="amount" 
+                      *ngIf="editRecordDetails && editRecordDetails.edit && editRecordDetails.i === i; else staticAmount" [value]="expense.amount">
+                      <ng-template #staticAmount> {{expense.amount}} </ng-template>
+                    </td>
+                    <td>
+                      <ng-container *ngIf="editRecordDetails && editRecordDetails.edit && editRecordDetails.i === i; else staticActions">
+                        <i class="clickable bi bi-check" style="font-size: 1.7rem;" (click)="updateRecord(i)"></i>
+                        <i class="clickable bi bi-x" style="font-size: 1.7rem;" (click)="editRecordDetails.edit=false"></i>
+                      </ng-container>
+                      <ng-template #staticActions> 
+                        <i class="clickable bi bi-pencil-square m-1" (click)="editRecord(i)"></i>
+                        <i class="clickable bi bi-trash-fill m-1" (click)="deleteRecord(i)"></i>
+                      </ng-template> 
+                    </td>
+                    
                   </tr>
+                  
                 </tbody>
-              </table>
+            </table>
+          </form>
         </div>
     </div>
+</div>
+
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header bg-success text-light">
+      <strong class="me-auto">Success</strong>
+      <button type="button" class="btn-close text-light" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      {{deletedMessage}}
+    </div>
+  </div>
 </div>
