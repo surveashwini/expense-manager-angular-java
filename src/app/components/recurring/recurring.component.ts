@@ -13,7 +13,11 @@ declare var $: any;
 })
 export class RecurringComponent implements OnInit {
   recurring;
+  expense: string;
+  amount: number;
+  expenseDuration: string;
   addRecurringExpenseForm: FormGroup;
+  userEntered: boolean;
 
   constructor(private expenseService: ExpenseService) { }
 
@@ -25,6 +29,17 @@ export class RecurringComponent implements OnInit {
       recurringAmount: new FormControl(''),
       duration: new FormControl('Weekly')
     });  
+
+    this.addRecurringExpenseForm.valueChanges.subscribe(value => {
+      this.expense = value.recurringExpense;
+      this.amount = value.recurringAmount;
+      this.expenseDuration = value.duration;
+      if(value.recurringAmount && value.recurringExpense) {
+        this.userEntered = true;
+      } else {
+        this.userEntered = false;
+      }
+    })
   }
 
   initializeToast() {

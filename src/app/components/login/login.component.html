@@ -1,21 +1,29 @@
 
-<main class="container w-25">
-    <form>
-    <h1 class="h3 mb-3 fw-normal">Login</h1>
-    <div class="form-floating row">
-        <input type="email" class="form-control col" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
+<main class="d-flex flex-row main">
+    <div class="left-panel bg-dark"> 
+        <div class="text-light h3 login-header">Get exclusive access to Expense Manager</div>
+        <div class="text-light login-info">We have developed a super cool platform for you to manage your expenses. 
+            We aim to keep this app as user-friendly as possible. Do check it out!
+        </div>
     </div>
-    <div class="form-floating row pb-3">
-        <input type="password" class="form-control col" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Password</label>
+    <div class="right-panel"> 
+        <div class="text-dark h3 login-header">We have designed a super smooth login so you can get started with your expense management really fast!</div>
+        <div class="text-dark login-info">Simply click the below button to login using your gmail account and start tracking your expenses!</div>
+        <button id="customBtn" class="customGPlusSignIn" type="button" class="btn btn-light text-secondary sign-in" data-onsuccess="onSignIn">
+            <i class="text-primary bi bi-google"></i>
+            <span>Sign in with Google</span>
+        </button>
     </div>
+    <!-- <div class="g-signin2" data-onsuccess="onSignIn">Sign In</div> --> 
+    
 
-    <div class="checkbox mb-3">
-        <label>
-        <input type="checkbox" value="remember-me"> Remember me
-        </label>
-    </div>
-    <button class="w-100 btn btn-lg btn-primary" (click)="login()">Sign in</button>
-    </form>
+    <!-- <div id="gSignInWrapper">
+        <span class="label">Sign in with:</span>
+        <div id="customBtn" class="customGPlusSignIn">
+          <span class="icon"></span>
+          <span class="buttonText">Google</span>
+        </div>
+      </div>
+      <div id="name"></div> -->
+      <!-- <script>startApp();</script> -->
 </main>

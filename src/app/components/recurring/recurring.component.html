@@ -42,7 +42,7 @@
                   
                   <div class="amount row justify-content-center g-3 align-items-center m-2">
                     <div>
-                      <button type="button" class="m-2 btn btn-primary" (click)="addRecurringExpense()">Submit</button>
+                      <button type="button" class="m-2 btn btn-primary" [disabled]="!(expense && amount && expenseDuration)" (click)="addRecurringExpense()">Submit</button>
                     </div>
                   </div>
                 </form>    

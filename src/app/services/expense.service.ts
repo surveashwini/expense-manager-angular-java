@@ -11,6 +11,8 @@ import { Expense } from '../models/expense';
 export class ExpenseService {
 
   private getUrl: string = 'http://localhost:8080/api/v1/expenses';
+  private addUrl: string = 'http://localhost:8080/api/v1/addexpenses';
+  private deleteUrl: string = 'http://localhost:8080/api/v1/deleteexpenses';
   private recurringExpenseUrl: string = 'http://localhost:8080/api/v1/recurringexpenses'
   private updateExpenseUrl: string = 'http://localhost:8080/api/v1/updateexpenses'
 

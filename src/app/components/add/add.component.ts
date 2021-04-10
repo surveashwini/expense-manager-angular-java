@@ -16,6 +16,7 @@ export class AddComponent implements OnInit {
   addExpenseForm: FormGroup;
   name: string;
   amount: string;
+  expensedate: string;
   imgPath: string;
   message: string;
   mood: string;
@@ -39,6 +40,7 @@ export class AddComponent implements OnInit {
       this.imgPath = '../../assets/';
       this.name = value.expense;
       this.amount = value.amount;
+      this.expensedate = value.expenseDate;
       if(value.expense && value.amount) {
         this.userEntered = true;
         this.setSummaryData(value);

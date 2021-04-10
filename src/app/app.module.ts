@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +12,8 @@ import { AddComponent } from './components/add/add.component';
 import { ReportComponent } from './components/report/report.component';
 import { RecurringComponent } from './components/recurring/recurring.component';
 import { AnalysisComponent } from './components/analysis/analysis.component';
+import { TokenInterceptor } from './interceptors/token.interceptor';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { AnalysisComponent } from './components/analysis/analysis.component';
     AddComponent,
     ReportComponent,
     RecurringComponent,
-    AnalysisComponent
+    AnalysisComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,11 @@ import { AnalysisComponent } from './components/analysis/analysis.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

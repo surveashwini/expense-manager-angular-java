@@ -32,8 +32,8 @@
               </div>
             </div>
             <div class="action row justify-content-center g-3 align-items-center m-2">
-              <div [ngClass]="{'disabled-button': !(name && amount)}">
-                <button type="button"  class="m-2 btn btn-primary" id="liveToastBtn" (click)="addExpense()">Submit</button>
+              <div [ngClass]="{'disabled-button': !(name && amount && expensedate)}">
+                <button type="button" [disabled]="!(name && amount && expensedate)" class="m-2 btn btn-primary" id="liveToastBtn" (click)="addExpense()">Submit</button>
                 <button type="button" class="m-2 btn btn-primary" (click)="reviewReport()">Report</button>
               </div>
             </div>

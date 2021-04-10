@@ -14,7 +14,7 @@
     </h5> 
     <div class="add-container" *ngIf="expenseList">
         <div class="card-body">
-          <form [formGroup]="reportForm" >
+          <form [formGroup]="reportForm" *ngIf="!(expenseList.length === 0); else noRecords" >
             <table class="table">
                 <thead>
                   <tr>
@@ -53,6 +53,9 @@
                 </tbody>
             </table>
           </form>
+          <ng-template #noRecords>
+            <span>No records found. Kindly add some expenses first!</span>
+          </ng-template>
         </div>
     </div>
 </div>
