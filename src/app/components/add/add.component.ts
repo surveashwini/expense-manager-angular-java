@@ -39,7 +39,7 @@ export class AddComponent implements OnInit {
       expenseDate: new FormControl('')
     });  
     this.addExpenseForm.valueChanges.subscribe(value => {
-      this.imgPath = '/assets/';
+      this.imgPath = 'assets/';
       this.name = value.expense;
       this.amount = value.amount;
       this.expensedate = value.expenseDate;
