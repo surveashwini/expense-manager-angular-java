@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.showLoader = false;
     var googleUser = {};
-    //var startApp = function() {
+    
       gapi.load('auth2', () => {
         // Retrieve the singleton for the GoogleAuth library and set up the client.
         this.auth2 = gapi.auth2.init({
@@ -30,15 +30,12 @@ export class LoginComponent implements OnInit {
         });
         this.attachSignin(document.getElementById('customBtn'));
       });
-    //};
-
-    
   }
 
-  attachSignin(element) {
-    this.showLoader = true;
+  attachSignin(element) {  
     this.auth2.attachClickHandler(element, {},
       (googleUser) => {
+        this.showLoader = true;
         this.ngZone.run(() => {
           this.loginService.saveUserData(googleUser.getAuthResponse(true).access_token, googleUser.getBasicProfile().getName());
           this.loginService.authenticateUser(
@@ -47,8 +44,7 @@ export class LoginComponent implements OnInit {
             googleUser.getAuthResponse(true).access_token
           ).subscribe(response => {
             this.showLoader = false;
-            this.router.navigate(['dashboard']);
-            this.cdr.detectChanges();
+            this.navigateToDashboard();
           })
         });
       }, (error) => {
@@ -56,7 +52,7 @@ export class LoginComponent implements OnInit {
       });
   }
 
-  login() {
+  navigateToDashboard() {
     this.router.navigate(['dashboard']);
   }
 }

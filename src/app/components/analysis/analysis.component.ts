@@ -49,9 +49,9 @@ export class AnalysisComponent implements OnInit {
       .domain(data.map(d => d.name))
       .range(d3.quantize(t => d3.interpolateSpectral(t * 0.8 + 0.1), data.length).reverse())
 
-      let width = 400;
+      let width = 300;
 
-      let height = Math.min(width, 400);
+      let height = Math.min(width, 300);
 
       let arc = d3.arc()
       .innerRadius(0)
@@ -111,8 +111,8 @@ export class AnalysisComponent implements OnInit {
     if(data.length > 0) {
       let chart: any = {};
 
-      let height = 400;
-      let width = 400;
+      let height = 300;
+      let width = 300;
       let margin = ({top: 20, right: 0, bottom: 30, left: 40});
 
       
@@ -186,8 +186,8 @@ export class AnalysisComponent implements OnInit {
 
     if(data.length > 0) {
       let margin = ({top: 20, right: 30, bottom: 30, left: 40})
-      let height = 400;
-      let width = 400;
+      let height = 300;
+      let width = 300;
   
       let line = d3.line()
       .defined(d => !isNaN(d.value))
@@ -268,8 +268,8 @@ export class AnalysisComponent implements OnInit {
 
   average() {
     let chart: any = {};
-    let height = 400;
-    let width = 400;
+    let height = 300;
+    let width = 300;
     let margin = ({top: 20, right: 20, bottom: 30, left: 50})
     let parseDate = d3.timeParse("%Y%m%d")
     
