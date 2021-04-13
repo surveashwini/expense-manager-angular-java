@@ -14,7 +14,7 @@
         <div class="card-body">
           <div *ngIf="expenseList;else loader">
             <form [formGroup]="reportForm" *ngIf="!(expenseList.length === 0); else noRecords" >
-              <table class="table" style="linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6)), url(assets/report.png)">
+              <table class="table" style="background: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6)), url(assets/report.png)">
                   <thead>
                     <tr>
                       <th scope="col">#</th>
