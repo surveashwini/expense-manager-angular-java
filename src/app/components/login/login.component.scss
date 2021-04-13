@@ -1,11 +1,24 @@
+.preloader {
+    align-items: center;
+    background: rgb(23, 22, 22);
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    transition: opacity 0.3s linear;
+    width: 100%;
+    z-index: 9999;
+    opacity:0.5;
+}
+
 .main {
     box-shadow: 0px 0px 8px 5px rgb(0 0 0 / 40%);
-    margin-top: 50px;
+    margin: 8%;
     .left-panel {
-        
         width: 50%;
         height:550px;
-
         img {
             width: 75%;
             height: 100%;
@@ -23,7 +36,6 @@
         .login-header {
             margin: 15% 5% 10% 5%;
         }
-
         #customBtn {
             margin: auto;
             box-shadow: 0px 0px 8px 5px rgb(0 0 0 / 40%);
@@ -32,6 +44,7 @@
             }
         }
     }
+
 
 
     .login-info {

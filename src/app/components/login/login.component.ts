@@ -1,4 +1,4 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 declare var gapi : any;
@@ -9,10 +9,15 @@ declare var gapi : any;
 })
 export class LoginComponent implements OnInit {
   auth2: any;
+  showLoader: boolean;
   
-  constructor(private router: Router, private ngZone: NgZone, private loginService: LoginService) { }
+  constructor(private router: Router, 
+    private ngZone: NgZone, 
+    private loginService: LoginService, 
+    private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
+    this.showLoader = false;
     var googleUser = {};
     //var startApp = function() {
       gapi.load('auth2', () => {
@@ -31,7 +36,7 @@ export class LoginComponent implements OnInit {
   }
 
   attachSignin(element) {
-    console.log(element.id);
+    this.showLoader = true;
     this.auth2.attachClickHandler(element, {},
       (googleUser) => {
         this.ngZone.run(() => {
@@ -41,7 +46,9 @@ export class LoginComponent implements OnInit {
             googleUser.getBasicProfile().getEmail(),
             googleUser.getAuthResponse(true).access_token
           ).subscribe(response => {
+            this.showLoader = false;
             this.router.navigate(['dashboard']);
+            this.cdr.detectChanges();
           })
         });
       }, (error) => {

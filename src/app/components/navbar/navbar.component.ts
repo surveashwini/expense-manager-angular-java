@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, HostListener, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { browserRefresh } from 'src/app/app.component';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -13,10 +13,13 @@ export class NavbarComponent implements OnInit {
   constructor(private loginService: LoginService, private router: Router, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.getUserName();
-    if(!this.user) {
-      this.user = this.loginService.getUserName();
-    }
+    this.router.events.subscribe((val) => {
+      if(val instanceof NavigationEnd && val.url === '/dashboard') {
+        if(!this.user) {
+          this.user = this.loginService.getUserName();
+        }
+      }
+    }); 
   }
 
   getUserName() {
