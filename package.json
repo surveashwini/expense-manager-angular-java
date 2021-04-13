@@ -21,6 +21,7 @@
     "@angular/router": "~11.2.7",
     "@types/jquery": "^3.5.5",
     "bs4-toast": "^1.2.0",
+    "heroku": "^7.52.0",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",

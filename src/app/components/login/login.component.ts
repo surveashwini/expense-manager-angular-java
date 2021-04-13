@@ -33,35 +33,23 @@ export class LoginComponent implements OnInit {
   attachSignin(element) {
     console.log(element.id);
     this.auth2.attachClickHandler(element, {},
-        (googleUser) => {
-          
-          this.ngZone.run(() => {
-            this.loginService.saveUserData(googleUser.getAuthResponse(true).access_token, googleUser.getBasicProfile().getName());
-            this.loginService.authenticateUser(
-              googleUser.getBasicProfile().getName(),
-              googleUser.getBasicProfile().getEmail(),
-              googleUser.getAuthResponse(true).access_token
-            ).subscribe(response => {
-              this.router.navigate(['dashboard']);
-            })
-            
-          });
-          // this.router.navigate(['dashboard']);
-          // googleUser.getBasicProfile().getName();
-        }, (error) => {
-          alert(JSON.stringify(error, undefined, 2));
+      (googleUser) => {
+        this.ngZone.run(() => {
+          this.loginService.saveUserData(googleUser.getAuthResponse(true).access_token, googleUser.getBasicProfile().getName());
+          this.loginService.authenticateUser(
+            googleUser.getBasicProfile().getName(),
+            googleUser.getBasicProfile().getEmail(),
+            googleUser.getAuthResponse(true).access_token
+          ).subscribe(response => {
+            this.router.navigate(['dashboard']);
+          })
         });
+      }, (error) => {
+        alert(JSON.stringify(error, undefined, 2));
+      });
   }
 
   login() {
     this.router.navigate(['dashboard']);
   }
-
-  // onSignIn(googleUser) {
-  //   var profile = googleUser.getBasicProfile();
-  //   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  //   console.log('Name: ' + profile.getName());
-  //   console.log('Image URL: ' + profile.getImageUrl());
-  //   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-  // }
 }

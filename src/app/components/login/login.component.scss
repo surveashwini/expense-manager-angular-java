@@ -5,6 +5,11 @@
         
         width: 50%;
         height:550px;
+
+        img {
+            width: 75%;
+            height: 100%;
+        }
         .login-header {
             margin-top: 30%;
             margin-left: 10%;
@@ -14,13 +19,14 @@
     .right-panel {
         width: 50%;
         height: 550px;
-        background-color: #dde7ff;
+        background-color: #e8fffe;
         .login-header {
             margin: 15% 5% 10% 5%;
         }
 
         #customBtn {
             margin: auto;
+            box-shadow: 0px 0px 8px 5px rgb(0 0 0 / 40%);
             span {
                 padding-left: 35px;
             }
@@ -61,6 +67,5 @@
         vertical-align: middle;
         white-space: nowrap;
         width: auto;
-        box-shadow: 0 2px 4px 0 rgb(0 0 0 / 25%);
     }
 }

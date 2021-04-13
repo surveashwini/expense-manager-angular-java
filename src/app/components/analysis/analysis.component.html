@@ -1,13 +1,14 @@
-<nav class="m-5" aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Expense analysis</li>
-    </ol>
-</nav>
-  
+
 
 <div class="rounded card m-5">
-    <h5 class="card-header bg-dark text-light">Analysis report</h5>
+    <h5 class="card-header bg-dark text-light">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item text-light"><a href="/dashboard">Dashboard</a></li>
+                <li class="breadcrumb-item active text-light" aria-current="page">Expense analysis</li>
+            </ol>
+        </nav>
+    </h5>
     <div class="card-body">
         <div class="container-fluid d-flex align-items-center justify-content-center" *ngIf="showCharts; else noRecords">
             <div class="flex-row w-50">
@@ -44,6 +45,6 @@
                 </div>
             </div>
         </div>
-        <ng-template #noRecords><p class="card-text"><span>Sorry, there is no enough expense data to process for analysis!</span></p>  </ng-template>
+        <ng-template #noRecords><img src="./../../../assets/no-data.gif"></ng-template>
     </div>
 </div>

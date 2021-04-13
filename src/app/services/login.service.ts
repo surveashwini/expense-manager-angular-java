@@ -10,7 +10,7 @@ export class LoginService {
   token: string;
   userObservable = new Subject<string>();
   
-  private authenticatedUserUrl: string = 'http://localhost:8080/api/v1/authenticateUser';
+  private authenticatedUserUrl: string = 'https://mysterious-lowlands-08309.herokuapp.com/api/v1/authenticateUser';
 
   constructor(private http: HttpClient) { }
 

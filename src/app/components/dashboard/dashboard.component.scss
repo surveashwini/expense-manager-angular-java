@@ -1,0 +1,20 @@
+.dashboard-container {
+    background: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6)), url(./../../../assets/dashboard.png);
+    
+    .dashboard-items {
+        background-color: rgb(240 247 251 / 80%);
+        margin-left: 50%;
+        margin-top: -1%;
+        
+    }
+    .dashboard-btn {
+        background-color: #93cef1;
+        border-color: #93cef1;
+        color: black;
+        box-shadow: 0px 0px 8px 5px rgb(0 0 0 / 40%);
+    }
+
+    .card-containers {
+        box-shadow: 0px 0px 8px 5px rgb(0 0 0 / 40%);
+    }
+}

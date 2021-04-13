@@ -22,6 +22,7 @@ export class AddComponent implements OnInit {
   mood: string;
   showToast: boolean;
   toastElList: any;
+  showProgress: boolean;
   
 
   constructor(private router: Router,
@@ -29,6 +30,7 @@ export class AddComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeToast();
+    this.showProgress = false;
     
     this.userEntered = false;
     this.addExpenseForm = new FormGroup({
@@ -58,22 +60,26 @@ export class AddComponent implements OnInit {
   setSummaryData(formValues: any) {
     if(formValues.amount > 5000){ 
       this.message = SAD;
-      this.imgPath += 'sad.jpeg'
+      this.imgPath += 'sad.gif'
       this.mood = 'sad';
     } else if(formValues.amount > 1000 ) {
       this.message = STRAIGHT;
-      this.imgPath += 'straight.jpeg';
+      this.imgPath += 'straight.gif';
       this.mood = 'straight';
     } else {
       this.message = HAPPY;
-      this.imgPath += 'smile.jpeg';
+      this.imgPath += 'smile.gif';
       this.mood = 'happy';
     }  
   }
 
   addExpense() {
-    $('.toast').toast('show');
-    this.expenseService.addExpense(this.addExpenseForm.value).subscribe((response) => this.addExpenseForm.reset());
+    this.showProgress = true;
+    this.expenseService.addExpense(this.addExpenseForm.value).subscribe((response) => {
+      $('.toast').toast('show');
+      this.showProgress = false;
+      this.addExpenseForm.reset();
+    });
   }
 
   reviewReport() {

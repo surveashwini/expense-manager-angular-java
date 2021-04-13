@@ -14,23 +14,17 @@
             <div class="card-body d-flex justify-content-center">
                 <form [formGroup]="addRecurringExpenseForm" >
                   <div class="type row justify-content-center g-3 align-items-center m-2">
-                    <!-- <div class="form-floating">
-                      <input type="text" id="recurringExpense" class="form-control" formControlName="recurringExpense" autocomplete="off">
-                      <label for="recurringExpense">Expense name</label>
-                    </div> -->
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="inputGroup-sizing-default">Expense</span>
                       <input type="text" id="recurringExpense" class="form-control" formControlName="recurringExpense" autocomplete="off">
                     </div>
                   </div>
                   <div class="amount row justify-content-center g-3 align-items-center m-2">
-                    
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="inputGroup-sizing-default">Amount</span>
                       <input type="number" id="recurringAmount" class="form-control" formControlName="recurringAmount" autocomplete="off">
                     </div>
                   </div>
-                  
                   <div class="amount row justify-content-center g-3 align-items-center m-2">
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="inputGroup-sizing-default">Duration</span>
@@ -39,7 +33,6 @@
                       </select>
                     </div>
                   </div>
-                  
                   <div class="amount row justify-content-center g-3 align-items-center m-2">
                     <div>
                       <button type="button" class="m-2 btn btn-primary" [disabled]="!(expense && amount && expenseDuration)" (click)="addRecurringExpense()">Submit</button>
